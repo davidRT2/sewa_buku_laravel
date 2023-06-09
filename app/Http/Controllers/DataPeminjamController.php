@@ -86,7 +86,7 @@ class DataPeminjamController extends Controller
     public function CobaCollection(){
         $daftar = ['Budi Santoso',
                     'Santika Nugraha',
-                    'David Akbar',
+                    'JOJO',
                     'Susanti'];
         $collection = collect($daftar)->map(function($nama){
                 return ucwords($nama);
@@ -140,9 +140,9 @@ class DataPeminjamController extends Controller
     public function collection_toJson(){
         $data = [
             ['kode_peminjam' => 'P001', 'nama_peminjam' => "Karina"],
-            ['kode_peminjam' => 'P002', 'nama_peminjam' => "Akbar"],
-            ['kode_peminjam' => 'P003', 'nama_peminjam' => "David"],
-            ['kode_peminjam' => 'P004', 'nama_peminjam' => "Nadia"],
+            ['kode_peminjam' => 'P002', 'nama_peminjam' => "Nadira"],
+            ['kode_peminjam' => 'P003', 'nama_peminjam' => "JOJO"],
+            ['kode_peminjam' => 'P004', 'nama_peminjam' => "Lesti"],
         ];
         $collection = collect($data)->toJson();
         return $collection;

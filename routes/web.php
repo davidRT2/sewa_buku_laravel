@@ -67,14 +67,14 @@ Route::get('home', function(){
 
 Route::get('lihat_data_peminjam', 'App\Http\Controllers\PeminjamController@lihat_data_peminjam');
 // Route::get('lihat_data_peminjam', function(){
-//     $peminjam = ['Jessica', 'David', 'Haqi', 'Satria', 'Nadia', 'Zahra'];
+//     $peminjam = ['Jessica', 'sdsd'];
 //     return view('peminjams/lihat_data_peminjam', compact('peminjam'));
 // });
 
 
 
 Route::get('biodata', function(){
-    return 'Nama : David <br> NIM : 4.33.21.1.18 <br> Alamat : Jl. Sirajudin Kota Semarang <br> Hobi : Mancing Ikan';
+    return 'Nama : David <br> NIM : 34234324 <br> Alamat : Jl. Sirajudin Kota Semarang <br> Hobi : Mancing Ikan';
 });
 
 // Route::get('mahasiswa/{prodi}', function($prodi){
