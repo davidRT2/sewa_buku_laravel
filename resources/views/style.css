@@ -1,0 +1,84 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body{
+	background: #34495e;
+}
+
+.login-box{
+	width: 280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: white;
+}
+
+.login-box h2{
+	float: left;
+	font-size: 40px;
+	border-bottom: 6px solid #4caf50;
+	margin-bottom: 50px;
+	padding: 13px 0;
+}
+
+.textbox{
+	width: 100%;
+	overflow: hidden;
+	font-size: 20px;
+	padding: 8px 0;
+	margin: 8px 0;
+	border-bottom: 1px solid #4caf50;
+}
+
+.textbox input{
+	border: none;
+	outline: none;
+	background: none;
+	color: white;
+	font-size: 18px;
+	width: 80%;
+	float: left;
+	margin: 0 10px;
+}
+
+.user-box{
+	position: relative;
+}
+
+.user-box label{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 8px 0;
+	font-size: 20px;
+	color: #fff;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label{
+	top: -20px;
+	left: 0;
+	color: #4caf50;
+	font-size: 15px;
+}
+
+a{
+	text-decoration: none;
+	background: #4caf50;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	float: right;
+	margin-top: 20px;
+}
+
+a:hover{
+	background: #fff;
+	color: #4caf50;
+}
