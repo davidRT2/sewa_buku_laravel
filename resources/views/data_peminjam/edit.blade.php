@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <h4>Edit data peminjam</h4>
-    <form method="POST" action="{{ route('data_peminjam.update', $peminjam->id) }}">
+    <form method="POST" action="{{ route('data_peminjam.update', $peminjam->id) }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="">Kode Peminjam</label>
@@ -38,6 +38,10 @@
         <div class="form-group">
             <label for="">Telepon</label>
             <input type="text" name="nomor_telepon" class="form-control" value="{{ $peminjam->nomor_telepon }}">
+        </div>
+        <div class="form-group">
+            <label for="">Foto</label>
+            <input type="file" name="foto" class="form-control">
         </div>
         <div class="form-group">
             <button type="submit">Simpan</button>

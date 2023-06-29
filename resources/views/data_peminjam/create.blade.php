@@ -2,7 +2,15 @@
 @section('content')
 <div class="container">
     <h4>Tambah Data Peminjam</h4>
-    <form method="POST" action="{{ route('data_peminjam.store') }}">
+    @if(count($errors)>0)
+        <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+    <form method="POST" action="{{ route('data_peminjam.store') }}" enctype="multipart/form-data">
+        <input type="hidden" name="user_id" class="form-control" value="{{ $user_id }}">
         @csrf
     <div class="form-group">
         <label >Kode Peminjam</label>
@@ -10,7 +18,7 @@
     </div>
     <div class="form-group">
         <label for="">Nama Peminjam</label>
-        <input type="text" name="nama_peminjam" class="form-control">
+        <input type="text" name="nama_peminjam" class="form-control" value="{{ $name }}">
     </div>
     <div class="form-group">
         <label for="">Jenis kelamin</label><br>
@@ -36,6 +44,10 @@
     <div class="form-group">
         <label for="" >Telepon</label>
         <input class="form-control" type="text" name="telepon">
+    </div>
+    <div class="form-group">
+        <label for="" >Foto</label>
+        <input class="form-control" type="file" name="foto">
     </div>
     <div>
         <button type="submit">Simpan</button>

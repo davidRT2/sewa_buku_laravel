@@ -13,11 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
+    return view('auth/login');
+});
 
-Route::get('/', 'App\Http\Controllers\IndexController@index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Route::get('data_peminjam', 'App\Http\Controllers\DataPeminjamController@index')->name('data_peminjam.index');
+
+// Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index')->name('peminjaman.index');
 
 Route::get('data_peminjam', 'App\Http\Controllers\DataPeminjamController@index');
 
@@ -30,6 +38,8 @@ Route::get('data_peminjam/edit/{id}', "App\Http\Controllers\DataPeminjamControll
 Route::post('data_peminjam/update/{id}', "App\Http\Controllers\DataPeminjamController@update")->name('data_peminjam.update');
 
 Route::post('data_peminjam/delete/{id}', "App\Http\Controllers\DataPeminjamController@destroy")->name('data_peminjam.destroy');
+
+Route::get('data_peminjam/search', "App\Http\Controllers\DataPeminjamController@search")->name('data_peminjam.search');
 
 Route::get('coba_collection', "App\Http\Controllers\DataPeminjamController@CobaCollection");
 
@@ -51,7 +61,9 @@ Route::get('collection_toArray', "App\Http\Controllers\DataPeminjamController@co
 
 Route::get('collection_toJson', "App\Http\Controllers\DataPeminjamController@collection_toJson");
 
-Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index');
+Route::get('data_peminjam', 'App\Http\Controllers\DataPeminjamController@index')->name('data_peminjam.index');
+
+Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@index')->name('peminjaman.index');
 
 Route::get('peminjaman/create', 'App\Http\Controllers\PeminjamanController@create')->name('peminjaman.create');
 
@@ -61,9 +73,21 @@ Route::get('peminjaman/detail_peminjam/{id}', 'App\Http\Controllers\PeminjamanCo
 
 Route::get('peminjaman/detail_buku/{id}', 'App\Http\Controllers\PeminjamanController@detail_buku')->name('peminjaman.detail_buku');
 
-Route::get('home', function(){
-    return view('home');
-});
+Route::get('user', 'App\Http\Controllers\UserController@index')->name('user.index');
+
+Route::get('user/create', 'App\Http\Controllers\UserController@create')->name('user.create');
+
+Route::post('user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
+
+Route::get('user/edit/{id}', 'App\Http\Controllers\UserController@edit')->name('user.edit');
+
+Route::post('user/update/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
+
+Route::post('user/destroy/{id}', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
+
+// Route::get('home', function(){
+//     return view('home');
+// });
 
 Route::get('lihat_data_peminjam', 'App\Http\Controllers\PeminjamController@lihat_data_peminjam');
 // Route::get('lihat_data_peminjam', function(){
